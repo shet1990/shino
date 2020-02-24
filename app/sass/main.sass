@@ -1,0 +1,227 @@
+@import "vars"
+@import "fonts"
+
+::placeholder
+  color: $placeholder-color
+
+::selection
+  background-color: $fon
+  color: $placeholder-color
+
+html
+  overflow-x: hidden
+
+body
+  font-size: $default-size
+  font-weight: normal
+  min-width: 320px
+  position: relative
+  line-height: $default-line-height
+  font-family: $default-font
+  overflow-x: hidden
+  opacity: 1
+  color: $default-color
+
+  select
+    background-color: #fff
+    outline: none
+    appearance: none
+
+  input, textarea, .mob-select
+    background-color: #fff
+    border: #666 1px solid
+    outline: none
+
+  a
+    text-decoration: none
+    color: $default-color
+
+    &:hover
+      color: $default-color
+  input
+    padding: 6px 12px
+    border-radius: $radius
+    width: 100%
+
+.b, strong, b
+  font-weight: bold
+
+ul
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+.spacer
+  flex-grow: 1
+.flex
+  display: flex
+  align-items: center
+  justify-content: center
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__start
+    display: flex
+    align-items: flex-start
+    justify-content: flex-start
+  &__beetwen
+    display: flex
+    justify-content: space-between
+.column
+  display: flex
+  flex-direction: column
+.container
+  padding: $container-padding
+  margin: 0 auto
+  max-width: $max-width
+  width: 100%
+.bg__cover
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+.bg__contain
+  background-position: center
+  background-repeat: no-repeat
+  background-size: contain
+.tr
+  transition: all .3s linear
+.round
+  border-radius: $radius
+.border
+  border: $border
+.h1, h1
+  font-size: 32px
+  font-weight: bold
+.h2, h2
+  font-size: 24px
+  font-weight: bold
+.h3, h3
+  font-size: 20px
+  font-weight: bold
+.point
+  cursor: pointer
+
+.clk
+  &:active
+    transform: translateY(3px)
+    transition-duration: 0.175s
+.hdn
+  display: none
+.mob__down
+  display: flex
+.mob__up
+  display: none
+
+// Гамбургер меню
+.my_hamburger
+  cursor: pointer
+  width: 24px
+  height: 24px
+  .hamburger_block
+    position: relative
+    height: 100%
+    .hamburger_top
+      top: 6px
+    .hamburger_bottom
+      top: 16px
+  .hamburger_top, .hamburger_bottom
+    position: absolute
+    transition: top .3s cubic-bezier(0.04, 0.04, 0.12, 1) .2999s,transform .1s cubic-bezier(0.04, 0.04, 0.12, 1)
+    width: 24px
+    height: 2px
+    background-color: #FFFFFF
+    border-radius: 2px
+  &.is-active
+    .hamburger_block
+      .hamburger_top, .hamburger_bottom
+        transition: top .3s cubic-bezier(0.04, 0.04, 0.12, 1),transform .1s cubic-bezier(0.04, 0.04, 0.12, 1) .29999s
+      .hamburger_top
+        top: 11px
+        transform: rotate(45deg)
+      .hamburger_bottom
+        top: 11px
+        transform: rotate(-45deg)
+// Конец
+
+//header
+.head_
+  &_logo
+    font-size: 24px
+    &:hover
+      text-decoration: none
+  &_top
+    .container
+      height: 100px
+      &>div:last-child
+        margin-left: 20px
+    img
+      width: 20px
+      margin-right: 10px
+  &_bot
+    background-color: $fon
+    .container
+      height: 60px
+  &_menu
+    height: 100%
+    ul
+      height: 100%
+      align-items: center
+    li
+      display: flex
+      align-items: center
+      margin-right: 10px
+      height: 100%
+      a
+        transition: all 0.3s
+        border-radius: $radius
+        padding: 6px 10px
+        font-size: 14px
+        color: #ffffff
+      &:hover
+        >a
+          background-color: #222
+          color: #ffffff
+          text-decoration: none
+      &:last-child
+        margin-right: 0
+      &.current-menu-item
+        a
+          pointer-events: none
+          background-color: #222
+      &.menu-item-has-children
+        position: relative
+        &>a
+          padding-right: 25px
+          &:before
+            content: url('../images/svg/shape.svg')
+            position: absolute
+            right: 8px
+            top: 20px
+        &:hover
+          &>ul
+            display: flex
+        &>ul
+          background-color: $fon
+          display: none
+          flex-direction: column
+          position: absolute
+          width: 140px
+          height: auto
+          left: 0
+          top: 60px
+          z-index: 5
+          li
+            margin-right: 0
+            width: 100%
+          a
+            border-radius: 0
+            width: 100%
+
+main
+  height: 200vh
+
+
+@import "media"
+// Always at the end
+
+
