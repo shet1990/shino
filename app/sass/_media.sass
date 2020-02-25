@@ -13,20 +13,31 @@
 @media only screen and (max-width: 1170px)
   /**/
 @media only screen and (max-width: 992px)
-  /**/
+  #footer
+    .column
+      margin-right: 20px
 @media only screen and (max-width: 768px)
 
+  .h1, h1
+    font-size: 28px
+    margin-bottom: 40px
+    &.before
+      &:before
+        bottom: -20px
+  .sh_padding
+    padding-bottom: 30px
+    padding-top: 30px
   .mob__down
     display: none
   .mob__up
     display: flex
-  .head_
+  .sh_head_
     &_bot
       &.is-active
         position: fixed
         top: 0
         width: 100%
-        .head__menu
+        .sh_head__menu
           left: 0
     &_logo
       color: #ffffff
@@ -65,6 +76,68 @@
           color: #ffffff
         img
           margin-right: 10px
+  .sh_bg
+    height: calc(100vh - 60px)
+    .h1
+      font-size: 24px
+      margin-bottom: 20px
+    p
+      font-size: 16px
+      margin-bottom: 14px
+    .sh_result
+      margin-left: 0px
+    .sh_calc
+      &__block
+        padding: 10px
+      &__title
+        font-weight: bold
+        flex-direction: column
+        font-size: 16px
+        margin-bottom: 12px
+    input, select
+      max-width: 100%
+      margin-right: 0px
+      margin-bottom: 12px
+  #footer
+    padding: 20px 0
+    height: auto
+    .container
+      align-items: center
+      flex-direction: column
+    .column
+      margin-right: 0
+      margin-bottom: 24px
+      align-items: center
+  .sh_about
+    flex-direction: column
+    .bg__cover
+      width: 100%
+      height: 300px
+    .sh_padding
+      width: 100%
+      padding: 20px
+  .sh_news__list
+    flex-direction: column
+    align-items: center
+    .sh_news__card
+      margin-bottom: 20px
+      .h2
+        font-size: 20px
+        margin: 10px 0
+  .sh_form
+    &__input
+      flex-direction: column
+      width: 100%
+      margin-bottom: 0
+      input
+        margin-bottom: 12px
+        max-width: 100%
+  .sh_blog__card
+    flex-direction: column
+    .sh_news__hover
+      align-self: center
+      margin-right: 0
+      margin-bottom: 24px
 
 @media only screen and (max-width: 660px)
   /**/

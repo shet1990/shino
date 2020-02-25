@@ -11,7 +11,20 @@
 
 @media only screen and (max-width: 992px) { /**/ }
 
-@media only screen and (max-width: 768px) { /**/ }
+@media only screen and (max-width: 768px) { .mob__down { display: none; }
+  .mob__up { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+  .head__bot.is-active { position: fixed; top: 0; width: 100%; }
+  .head__bot.is-active .head__menu { left: 0; }
+  .head__logo { color: #ffffff; }
+  .head__menu { background-color: #333333; height: -webkit-calc(100vh - 60px); height: calc(100vh - 60px); width: 100vw; position: fixed; z-index: 10; left: 100vw; top: 60px; }
+  .head__menu ul { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; height: auto; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; padding: 20px 0; }
+  .head__menu ul li { width: 100%; margin-right: 0; height: 100%; }
+  .head__menu ul li a { width: 100%; font-size: 16px; border-radius: 0; padding: 10px 20px; }
+  .head__menu ul li.current-menu-item a { background-color: #333333; }
+  .head__menu ul li.menu-item-has-children a:before { content: ''; }
+  .head__menu ul li.menu-item-has-children > ul { display: none !important; }
+  .head__menu .mob__up a { color: #ffffff; }
+  .head__menu .mob__up img { margin-right: 10px; } }
 
 @media only screen and (max-width: 660px) { /**/ }
 

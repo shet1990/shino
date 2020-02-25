@@ -27,31 +27,32 @@ body
     outline: none
     appearance: none
 
-  input, textarea, .mob-select
+  input, textarea, select
     background-color: #fff
-    border: #666 1px solid
+    border: #DDD 1px solid
     outline: none
+    padding: 6px 12px
+    border-radius: $radius
+    width: 100%
 
   a
     text-decoration: none
     color: $default-color
 
     &:hover
+      text-decoration: none
       color: $default-color
-  input
-    padding: 6px 12px
-    border-radius: $radius
-    width: 100%
 
 .b, strong, b
   font-weight: bold
-
+p
+  font-weight: 200
 ul
   list-style-type: none
   margin: 0
   padding: 0
 
-.spacer
+.sh_spacer
   flex-grow: 1
 .flex
   display: flex
@@ -75,6 +76,9 @@ ul
   margin: 0 auto
   max-width: $max-width
   width: 100%
+  height: 100%
+.sh_bg__color
+  background-color: #F9F9F9
 .bg__cover
   background-position: center
   background-repeat: no-repeat
@@ -89,9 +93,30 @@ ul
   border-radius: $radius
 .border
   border: $border
+
 .h1, h1
   font-size: 32px
   font-weight: bold
+  margin-bottom: 80px
+  &.before
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      bottom: -40px
+      height: 2px
+      width: 50px
+      background-color: #000
+    &.center
+      text-align: center
+      &:before
+        left: calc(50% - 25px)
+  &.white
+    color: #ffffff
+    &:before
+      background-color: #fff
+
+
 .h2, h2
   font-size: 24px
   font-weight: bold
@@ -100,7 +125,30 @@ ul
   font-weight: bold
 .point
   cursor: pointer
-
+.sh_padding
+  padding-top: 60px
+  padding-bottom: 60px
+.sh_btn
+  color: #ffffff
+  padding: 10px 20px
+  background-color: $orange
+  border-radius: 20px
+  &:hover
+    color: #ffffff
+    background-color: $orange-hover
+// Выплывающие блоки
+.fade__up
+  opacity: 0
+  transform: translate(0,80px)
+  transition-property: opacity, transform
+  transition-duration: 1.7s
+  transition-delay: 0s
+  transition-timing-function: cubic-bezier(.19,1,.22,1)
+  &.animate
+    transition-delay: .15s
+    transform: translate(0,0)
+    opacity: 1
+// Конец
 .clk
   &:active
     transform: translateY(3px)
@@ -111,9 +159,22 @@ ul
   display: flex
 .mob__up
   display: none
+.sh_bg__gradi
+  position: absolute
+  background-color: rgba(0, 0, 0, 0.6)
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+.sh_anim__svg
+  path
+    transition: all 0.3s linear
+  &.active, &:hover
+    path
+      fill: $orange
 
 // Гамбургер меню
-.my_hamburger
+.sh_hamburger
   cursor: pointer
   width: 24px
   height: 24px
@@ -144,7 +205,7 @@ ul
 // Конец
 
 //header
-.head_
+.sh_head_
   &_logo
     font-size: 24px
     &:hover
@@ -158,6 +219,7 @@ ul
       width: 20px
       margin-right: 10px
   &_bot
+    z-index: 10
     background-color: $fon
     .container
       height: 60px
@@ -217,9 +279,382 @@ ul
             border-radius: 0
             width: 100%
 
-main
-  height: 200vh
 
+//main
+.sh_bg
+  position: relative
+  height: calc(100vh - 160px)
+  .container
+    justify-content: center
+    align-items: center
+  .h1
+    z-index: 1
+    text-align: center
+    font-size: 40px
+    color: #ffffff
+    margin-bottom: 40px
+  p
+    z-index: 1
+    text-align: center
+    font-size: 24px
+    color: #ffffff
+    font-weight: 200
+    margin-bottom: 32px
+  .sh_result
+    display: none
+    color: $red
+    margin-left: 10px
+    &.active
+      display: flex
+  .sh_calc
+    &__block
+      z-index: 1
+      width: 100%
+      padding: 20px
+      background-color: rgba(0,0,0, 0.7)
+    &__title
+      font-size: 24px
+      color: $orange
+      margin-bottom: 24px
+      align-self: center
+  input, select
+    max-width: 200px
+    margin-right: 20px
+    &[type="submit"]
+      font-weight: bold
+      color: #ffffff
+      margin-right: 0
+      background-color: $orange
+      &:hover
+        background-color: $orange-hover
+
+#result
+  margin: 0 6px
+
+//Преимущество
+.sh_advant
+  &__card
+    display: flex!important
+    align-items: center
+    .h3
+      margin: 24px 0 12px
+    p
+      text-align: center
+      width: 80%
+  &__img
+    border: 1px solid $red
+    border-radius: 100%
+    width: 100px
+    height: 100px
+    img
+      width: 50px
+.slick-dots
+  li
+    width: 15px
+    height: 15px
+    background-color: $fon
+    border-radius: 100%
+    &.slick-active
+      background-color: $red
+    div
+      display: none
+
+
+//service
+.sh_service
+  &__list
+    width: 100%
+    max-width: 1300px
+.sh_service__card
+  position: relative
+  overflow: hidden
+  margin: 10px
+  min-width: 220px
+  max-width: 310px
+  max-height: 200px
+  min-height: 200px
+  width: 100%
+  background: #000000
+  color: #ffffff
+  text-align: center
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15)
+  *
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    -webkit-transition: all 0.4s ease-in-out
+    transition: all 0.4s ease-in-out
+  img
+    max-width: 100%
+    position: relative
+    opacity: 0.4
+  figcaption
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+  .h3
+    position: absolute
+    left: 40px
+    right: 40px
+    display: inline-block
+    background: #000000
+    -webkit-transform: skew(-10deg) rotate(-10deg) translate(0, -50%)
+    transform: skew(-10deg) rotate(-10deg) translate(0, -50%)
+    padding: 12px 5px
+    margin: 0
+    top: 50%
+    text-transform: uppercase
+    font-weight: 400
+  &:before
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    content: ''
+    background: #ffffff
+    position: absolute
+    -webkit-transition: all 0.3s ease-in-out
+    transition: all 0.3s ease-in-out
+    -webkit-transform: rotate(110deg) translateY(-50%)
+    transform: rotate(110deg) translateY(-50%)
+  a
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    position: absolute
+    z-index: 1
+  &:hover img, &.hover img
+    opacity: 1
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+  &:hover .h3, &.hover .h3
+    -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%)
+    transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%)
+
+  &:hover:before, &.hover:before
+    -webkit-transform: rotate(110deg) translateY(-150%)
+    transform: rotate(110deg) translateY(-150%)
+  &.blue
+    background: #123851
+  &.blue .h3
+    background: #0a212f
+  &.red
+    background: #581a14
+  &.red .h3
+    background: #36100c
+  &.yellow
+    background: #7f5006
+  &.yellow .h3
+    background: #583804
+
+
+//О нас
+.sh_about
+  .sh_padding
+    align-items: flex-start
+    padding-left: 40px
+    padding-right: 40px
+    height: 100%
+    width: 50%
+    .h2
+      margin-bottom: 32px
+    .sh_btn
+      margin-top: 24px
+  .bg__cover
+    height: 500px
+    width: 50%
+
+
+//Новости
+.sh_news__block
+  background-attachment: fixed
+  position: relative
+  .h1
+    z-index: 1
+.sh_news__card
+
+  color: #ffffff
+  align-items: flex-start
+  img
+    width: 100%
+  .h2
+    color: #ffffff
+    margin: 20px 0
+
+.sh_news__hover
+  width: 100%
+  max-width: 360px
+  position: relative
+  overflow: hidden
+  .hover__layout
+    width: 600px
+    height: 400px
+    transform: rotate(45deg)
+    transition: all .5s
+    left: -450px
+    top: 200px
+    position: absolute
+    background-color: rgba(0, 0, 0, 0.3)
+  &:hover
+    .hover__layout
+      left: 200px
+      top: -450px
+
+//Отзывы
+.sh_review__block
+  .container
+    align-items: flex-start
+  .h1
+    align-self: center
+.sh_review__list
+  width: 100%
+.sh_review__card
+  width: 100%
+  margin-bottom: 40px
+  padding: 20px
+  img
+    border-radius: 100%
+    width: 50px
+    margin-right: 32px
+  p
+    margin-bottom: 20px
+
+
+//ФОрма
+.sh_form__block
+  h1, .sh_contact__block
+    align-self: flex-start
+  .container
+    align-items: center
+.sh_form
+  &__feedback
+    align-items: center
+    max-width: 800px
+    width: 100%
+    input[type="submit"]
+      margin-top: 32px
+      width: 200px
+    textarea
+      height: 120px
+  &__input
+    width: 100%
+    margin-bottom: 32px
+    input
+      max-width: 200px
+
+.sh_contact__block
+  font-size: 18px
+  margin: 40px 0
+.sh_contact__line
+  margin-bottom: 24px
+  &:last-child
+    margin-bottom: 0
+  span, a
+    margin-bottom: 12px
+    &:last-child
+      font-weight: 200
+
+.sh_text__block
+  font-size: 18px
+  font-weight: 200
+  img
+    width: 100%
+    margin-bottom: 24px
+  p
+    margin-bottom: 24px
+    & + ul
+      margin-top: -12px
+  ul
+    margin-bottom: 24px
+    padding-left: 24px
+    li
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        width: 12px
+        height: 2px
+        background-color: #000000
+        top: 12px
+        left: -20px
+
+
+.sh_crumb
+  margin-top: 40px
+  font-weight: 200
+  li
+    margin-right: 24px
+    a
+      font-weight: 400
+    & + li
+      position: relative
+      &:before
+        content: url("../images/svg/shape-crumb.svg")
+        transform: rotate(-90deg)
+        position: absolute
+        top: 0
+        left: -18px
+
+
+.sh_tag__list
+  li
+    margin-bottom: 12px
+    margin-right: 12px
+  a
+   border-radius: $radius
+   color: $red
+   padding: 8px
+   border: 1px solid $red
+   &:hover
+     color: $red
+
+.sh_blog__card
+  margin-bottom: 60px
+  .sh_news__hover
+    min-width: 360px
+    margin-right: 24px
+  .sh_date
+    color: $gray
+    font-size: 14px
+  .column
+    align-items: flex-start
+    height: 100%
+    .sh_btn
+      margin-top: 12px
+    .flex__beetwen
+      margin-bottom: 24px
+      align-items: center
+      width: 100%
+
+//footer
+#footer
+  background-color: $fon
+  height: 200px
+  .column
+    margin-right: 50px
+    a, span
+      font-size: 20px
+      font-weight: 200
+      color: #ffffff
+      text-decoration: none
+.sh_soc__list
+  a
+    border: 1px solid #ffffff
+    width: 40px
+    height: 40px
+    border-radius: 100%
+    margin-right: 20px
+    path
+      transition: all 0.3s linear
+    &:hover
+      border: 1px solid $orange
+      path
+        fill: $orange
+    &:last-child
+      margin-right: 0
 
 @import "media"
 // Always at the end

@@ -1,16 +1,48 @@
 $(function() {
 
     /* Анимация гамбургера */
-    $('.my_hamburger').click(function(){
+    $('.sh_hamburger').click(function(){
         //Появление
         if(!$(this).hasClass('is-active')){
             $(this).addClass('is-active');
-            $('.head__bot').addClass('is-active');
+            $('.sh_head__bot').addClass('is-active');
         } else {
             //Скрытие
             $(this).removeClass('is-active');
-            $('.head__bot').removeClass('is-active');
+            $('.sh_head__bot').removeClass('is-active');
         }
+    });
+    /* Конец */
+
+    /* Анимация табов услуг на главной */
+    $(".sh_service__card").mouseleave(
+        function() {
+            $(this).removeClass("hover");
+        }
+    );
+    /* Конец */
+
+    /* Мобильный слайдер */
+    adaptiveSlickSlider();
+    $(window).resize(function () {
+        adaptiveSlickSlider();
+    });
+    /* Конец */
+
+    /* Анимация выплывающих блоков */
+    $(window).scroll(function () {
+        var animateScrollStart = 80;
+        var animateScrollBottom = $(window).scrollTop() + $(window).height();
+        var animateScrollBottomStart = animateScrollBottom - animateScrollStart;
+
+        $('.fade__up').each(function () {
+            var offSetTopAnimateBlock = $(this).offset().top;
+            if(animateScrollBottomStart > offSetTopAnimateBlock){
+                $(this).addClass('animate');
+            } else {
+                $(this).removeClass('animate');
+            }
+        })
     });
     /* Конец */
 
@@ -64,6 +96,31 @@ $(function() {
     /* Конец */
 
 })
+
+function adaptiveSlickSlider() {
+    if($(window).width() <= 768){
+        if ($(".sh_advant__list").length > 0) {
+            let sliderContainer = $(".sh_advant__list");
+            sliderInit(sliderContainer);
+        }
+    } else {
+        if($('.sh_advant__list').hasClass('slick-slider')){
+            $('.sh_advant__list').slick('unslick');
+        }
+    }
+}
+
+function sliderInit(container) {
+    container.slick({
+        infinite: false,
+        loop: true,
+        dots: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    })
+}
+
 function fancyModalOpen(src){
     $.fancybox.open(src, {
         padding     : 0,
